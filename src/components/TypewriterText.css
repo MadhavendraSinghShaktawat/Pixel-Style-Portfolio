@@ -1,0 +1,54 @@
+.typewriter {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: var(--accent-pink);
+  text-shadow: 
+    3px 3px 0px rgba(0, 0, 0, 0.8),
+    0 0 15px rgba(255, 105, 180, 0.5);
+  margin: 0;
+  position: relative;
+}
+
+.typewriter::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -15px;
+  width: 25px;
+  height: 25px;
+  background: rgba(255, 105, 180, 0.1);
+  border-radius: 0 0 0 5px;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.typewriter-line {
+  display: block;
+  margin-bottom: 0.8em;
+  position: relative;
+}
+
+.typewriter-line:nth-child(2) {
+  color: #f8bbd0;
+}
+
+.typewriter-line:nth-child(3) {
+  color: #ce93d8;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 4px;
+  width: 12px;
+  height: 24px;
+  background-color: var(--accent-pink);
+  vertical-align: middle;
+  animation: blink 1s infinite;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+} 

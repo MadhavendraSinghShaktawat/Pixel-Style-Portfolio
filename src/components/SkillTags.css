@@ -1,0 +1,103 @@
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(6px, 1.5vw, 12px);
+  margin-top: clamp(10px, 2vw, 15px);
+  justify-content: center;
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, #6a0dad, #8a2be2);
+  color: white;
+  padding: clamp(6px, 1.5vw, 10px) clamp(8px, 2vw, 15px);
+  border-radius: 8px;
+  font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+  font-family: 'Press Start 2P', cursive;
+  animation: fadeIn 0.5s ease-in-out;
+  transform: scale(0);
+  animation-fill-mode: forwards;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 3px rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-tag::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: transform 0.6s ease;
+}
+
+.skill-tag:hover::before {
+  transform: rotate(45deg) translate(80%, 80%);
+}
+
+.skill-tag:hover {
+  transform: scale(1.05) !important;
+  background: linear-gradient(135deg, #8a2be2, #ff69b4);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(255, 105, 180, 0.3),
+    inset 0 1px 3px rgba(255, 255, 255, 0.3);
+  z-index: 10;
+}
+
+.skill-tag:nth-child(3n+1) {
+  background: linear-gradient(135deg, #6a0dad, #5d11a6);
+}
+
+.skill-tag:nth-child(3n+2) {
+  background: linear-gradient(135deg, #8a2be2, #7b1fa2);
+}
+
+.skill-tag:nth-child(3n+3) {
+  background: linear-gradient(135deg, #9c27b0, #8e24aa);
+}
+
+@keyframes fadeIn {
+  from { 
+    transform: scale(0); 
+    opacity: 0; 
+  }
+  to { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 600px) {
+  .skill-tags {
+    gap: 6px;
+  }
+  
+  .skill-tag {
+    padding: 6px 10px;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .skill-tags {
+    gap: 5px;
+  }
+  
+  .skill-tag {
+    padding: 5px 8px;
+    font-size: 0.55rem;
+  }
+} 

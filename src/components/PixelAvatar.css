@@ -1,0 +1,167 @@
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 2vw, 20px);
+  position: relative;
+  padding: 10px;
+}
+
+.avatar-frame {
+  width: clamp(150px, 25vw, 230px);
+  height: clamp(150px, 25vw, 230px);
+  border-radius: 50%;
+  padding: clamp(6px, 1vw, 10px);
+  background: linear-gradient(135deg, #ff69b4, #6a0dad, #ff69b4);
+  background-size: 200% 200%;
+  animation: gradient-rotate 10s ease infinite;
+  position: relative;
+  box-shadow: 
+    0 15px 25px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.3);
+  z-index: 1;
+}
+
+@keyframes gradient-rotate {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.avatar-frame::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff69b4, transparent, #6a0dad, transparent, #ff69b4);
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.7;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+.pixel-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border: 4px solid #111;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pixel-avatar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1), 
+    transparent 50%, 
+    rgba(0, 0, 0, 0.1)
+  );
+  pointer-events: none;
+}
+
+.pixel-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    inset 0 0 25px rgba(255, 105, 180, 0.5),
+    0 0 15px rgba(255, 105, 180, 0.3);
+}
+
+.avatar-name {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(0.8rem, 3vw, 1.1rem);
+  color: var(--accent-pink);
+  text-shadow: 
+    2px 2px 0 rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(255, 105, 180, 0.5);
+  text-align: center;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+.avatar-name::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 105, 180, 0.7), 
+    transparent
+  );
+}
+
+.easter-egg-text {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffcc00;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  animation: floatUp 2s forwards;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% { top: -40px; opacity: 1; }
+  100% { top: -80px; opacity: 0; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 600px) {
+  .avatar-frame {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .avatar-name {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .avatar-frame {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .avatar-frame {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .avatar-name {
+    font-size: 0.8rem;
+  }
+} 

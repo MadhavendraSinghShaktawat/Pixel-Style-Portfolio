@@ -1,0 +1,61 @@
+.title-box {
+  background-color: #2d1a41;
+  border: 3px solid #ff69b4;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+  text-align: center;
+}
+
+.main-title {
+  color: #ff86c8;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.8);
+  margin: 0 0 15px 0;
+  letter-spacing: 1px;
+}
+
+.role-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.role {
+  color: #01ff70;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+.role::after {
+  content: '';
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 16px;
+  background-color: #01ff70;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Make sure the title is responsive */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 1.5rem;
+  }
+  
+  .role {
+    font-size: 1.2rem;
+  }
+} 

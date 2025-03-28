@@ -1,0 +1,199 @@
+.main-window {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  height: auto;
+  min-height: 550px;
+  box-shadow: 0 0 40px rgba(171, 71, 188, 0.7), 
+              inset 0 0 15px rgba(106, 13, 173, 0.4);
+  border: 4px solid #9c27b0;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, rgba(20, 10, 30, 0.95), rgba(10, 5, 15, 0.98));
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.main-window::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff00cc, #3333ff, #ff00cc);
+  background-size: 200% 100%;
+  animation: gradient-shift 6s linear infinite;
+  z-index: 10;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}
+
+.main-window::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    #ff69b4, #6a0dad, #9932cc, #ff69b4, 
+    #6a0dad, #9932cc, #ff69b4);
+  background-size: 400% 400%;
+  z-index: -1;
+  filter: blur(5px);
+  opacity: 0.7;
+  animation: animatedgradient 15s ease infinite;
+  border-radius: 16px;
+}
+
+@keyframes animatedgradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-content {
+  display: flex;
+  padding: clamp(15px, 3vw, 30px);
+  gap: clamp(20px, 4vw, 40px);
+  min-height: fit-content;
+  overflow: visible;
+  position: relative;
+}
+
+.hero-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 105, 180, 0.4), 
+    transparent
+  );
+}
+
+.left-column {
+  flex: 0 0 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(15px, 3vw, 30px);
+  justify-content: flex-start;
+  overflow: visible;
+  position: relative;
+  padding-top: 20px;
+}
+
+.intro-section {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: relative;
+  width: 100%;
+}
+
+.terminal-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(200px, 40vh, 300px);
+  max-height: clamp(200px, 40vh, 300px);
+  margin-top: 20px;
+}
+
+/* Improved responsive design for different screen sizes */
+@media (max-width: 1200px) {
+  .main-window {
+    width: 95%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    padding: 15px;
+    gap: 20px;
+    padding-top: 70px;
+  }
+  
+  .left-column, .right-column {
+    width: 100%;
+  }
+  
+  .left-column {
+    gap: 20px;
+  }
+  
+  .terminal-section {
+    min-height: 250px;
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-content {
+    padding: 10px;
+    padding-top: 60px;
+  }
+  
+  .terminal-section {
+    min-height: 200px;
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-window {
+    width: 98%;
+    margin: 10px auto;
+    border-width: 3px;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .left-column {
+    flex: 0 0 30%;
+  }
+  
+  .terminal-section {
+    min-height: 150px;
+    max-height: 150px;
+  }
+}
+
+.hero-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+} 

@@ -1,0 +1,326 @@
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+:root {
+  --main-purple: #6a0dad;
+  --main-dark: #0a0a0a;
+  --accent-pink: #ff69b4;
+  --text-light: #f0f0f0;
+  --window-border: #8a57b1;
+  --pixel-size: clamp(2px, 0.4vw, 4px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--main-dark);
+  color: var(--text-light);
+  font-family: 'VT323', monospace;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Scan lines effect */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.1) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+/* Subtle radial gradient background addition */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0a 100%);
+  z-index: -2;
+}
+
+/* Add these elegant geometric shapes in the background */
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(106, 13, 173, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(255, 105, 180, 0.07) 0%, transparent 20%),
+    radial-gradient(circle at 40% 80%, rgba(138, 43, 226, 0.05) 0%, transparent 30%),
+    radial-gradient(circle at 70% 20%, rgba(255, 182, 193, 0.1) 0%, transparent 20%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Add subtle corner decorations */
+.App::after {
+  content: '';
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-top: 3px solid rgba(255, 105, 180, 0.5);
+  border-left: 3px solid rgba(255, 105, 180, 0.5);
+  opacity: 0.7;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.App .corner-decoration {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-bottom: 3px solid rgba(106, 13, 173, 0.5);
+  border-right: 3px solid rgba(106, 13, 173, 0.5);
+  opacity: 0.7;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes windowClose {
+  to { transform: scale(0.9); opacity: 0; }
+}
+
+@keyframes windowMinimize {
+  to { height: 40px; }
+}
+
+@keyframes windowExpand {
+  from { height: 40px; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes floatUp {
+  0% { top: -40px; opacity: 1; }
+  100% { top: -80px; opacity: 0; }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .pixel-window {
+    margin: 20px;
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+  }
+  
+  .avatar-container, .hero-text {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+  
+  .main-window {
+    height: auto;
+  }
+  
+  .info-window {
+    margin-top: 20px;
+  }
+  
+  h1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .window-title {
+    font-size: 0.8rem;
+  }
+  
+  .pixel-avatar {
+    width: 150px;
+    height: 150px;
+  }
+  
+  h1 {
+    font-size: 1.2rem;
+  }
+  
+  .social-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Add this to your App.css */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(30, 30, 40, 0.6);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #6a0dad, #9932cc);
+  border-radius: 10px;
+  border: 3px solid rgba(30, 30, 40, 0.6);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #8a2be2, #ba55d3);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #6a0dad rgba(30, 30, 40, 0.6);
+}
+
+/* Add viewport-specific styles */
+@media screen and (max-width: 1200px) {
+  :root {
+    --window-border: #7a47a1;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    --window-border: #6a37a1;
+  }
+  
+  body::after {
+    opacity: 0.1; /* Reduce scanline effect on small screens */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --window-border: #5a27a1;
+  }
+  
+  body::after {
+    opacity: 0.08;
+  }
+  
+  body::before {
+    background: radial-gradient(circle at center, #191927 0%, #0a0a0a 100%);
+  }
+}
+
+/* Add specific styles for mobile devices */
+@media (max-width: 480px) {
+  #root {
+    padding: 0;
+  }
+  
+  .App {
+    padding: 10px 0;
+  }
+}
+
+/* Add styles for high-resolution displays */
+@media (min-width: 1600px) {
+  .main-window {
+    max-width: 1400px;
+  }
+  
+  body {
+    font-size: 1.3rem;
+  }
+}
+
+/* Add styles for small height screens (like landscape on mobile) */
+@media (max-height: 600px) {
+  .main-window {
+    margin: 10px auto;
+    min-height: 450px;
+  }
+  
+  .hero-content {
+    min-height: 400px;
+    max-height: 400px;
+  }
+}

@@ -1,0 +1,34 @@
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stat-label {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  color: var(--accent-pink);
+}
+
+.stat-bar {
+  height: 15px;
+  background-color: #333;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stat-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--main-purple), var(--accent-pink));
+  animation: fillBar 2s ease-out;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+}
+
+.stat-icons, .stat-count {
+  display: flex;
+  gap: 10px;
+  font-size: 0.9rem;
+} 
