@@ -59,9 +59,10 @@
 
 .hero-content {
   display: flex;
-  padding: clamp(15px, 3vw, 30px);
-  gap: clamp(20px, 4vw, 40px);
-  min-height: fit-content;
+  padding: 30px;
+  gap: 40px;
+  min-height: 650px;
+  max-height: 650px;
   overflow: visible;
   position: relative;
 }
@@ -103,9 +104,10 @@
 .intro-section {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 10px;
   position: relative;
   width: 100%;
+  min-height: 250px;
 }
 
 .terminal-section {

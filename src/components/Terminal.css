@@ -121,7 +121,28 @@
 }
 
 .terminal-response {
-  color: #0f0;
+  color: #01ff70;
+  font-family: 'VT323', monospace;
+  font-size: 1rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+/* Style for education headers */
+.terminal-response:contains("===") {
+  color: #ff71ce;
+  font-weight: bold;
+}
+
+.terminal-response:contains("UNIVERSITY"), 
+.terminal-response:contains("SCHOOLING") {
+  color: #01cdfe;
+  font-weight: bold;
+}
+
+/* Style bullet points */
+.terminal-response:contains("•") {
+  padding-left: 10px;
 }
 
 .terminal-cursor {

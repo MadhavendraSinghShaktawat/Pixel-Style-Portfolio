@@ -19,6 +19,14 @@ A stunning space-themed portfolio built with React, Vite and TypeScript featurin
 - Rotating planets with moons and rings
 - Colorful nebulas and passing comets
 
+### Interactive Skill Planets
+- Skills visualized as orbiting planets in a galaxy
+- Planet size indicates skill proficiency level
+- Hover/tap to reveal detailed skill information
+- Skill moons represent mastery levels
+- Interactive 3D-like rotation and scaling effects
+- Mobile-optimized touch interactions
+
 ### Pixel Art UI Elements
 - Retro-styled windows with functional controls
 - Dynamic typewriter text effects
@@ -32,6 +40,7 @@ A stunning space-themed portfolio built with React, Vite and TypeScript featurin
 - Toggle between high and low performance modes
 - Mobile-friendly responsive design
 - Adaptive effects based on device capabilities
+- **Android optimization with background pausing**
 
 ## Getting Started
 
@@ -153,6 +162,54 @@ The space background uses canvas for rendering, which can be intensive on some d
 1. Use the Performance Toggle to switch to low-performance mode
 2. Consider disabling some effects by modifying the CSS class `.low-performance-mode`
 3. On mobile, some effects are automatically simplified
+
+### Android-Specific Optimizations
+
+For Android devices, the portfolio implements special performance optimizations:
+
+1. **Background Visibility Detection**: The space background pauses rendering when not visible to the user
+2. **IntersectionObserver Implementation**: Using modern browser APIs to detect when elements are in viewport
+3. **Animation Frame Pausing**: Canvas animation frames are paused when scrolled out of view
+4. **Reduced Animation Complexity**: Automatically reduces particle count and effect complexity on Android
+5. **Battery-Aware Rendering**: Adjusts animation quality based on device battery status (when available)
+
+To implement these optimizations in your components:
+
+```jsx
+// Example implementation in SpaceBackground.jsx
+useEffect(() => {
+  // Detect Android
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  
+  if (isAndroid) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Resume animations when visible
+            resumeAnimations();
+          } else {
+            // Pause animations when not visible
+            pauseAnimations();
+          }
+        });
+      },
+      { threshold: 0.1 } // 10% visibility threshold
+    );
+    
+    // Observe the canvas element
+    if (canvasRef.current) {
+      observer.observe(canvasRef.current);
+    }
+    
+    return () => {
+      if (canvasRef.current) {
+        observer.unobserve(canvasRef.current);
+      }
+    };
+  }
+}, []);
+```
 
 ## License
 

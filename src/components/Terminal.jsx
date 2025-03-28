@@ -10,18 +10,28 @@ const Terminal = () => {
     const script = [
       { 
         type: 'command', 
-        content: 'ls -la projects/',
+        content: 'cat education.txt',
         delay: 1000 
       },
       { 
         type: 'response', 
         content: [
-          'total 5',
-          'drwxr-xr-x  2 madhav users 4096 Oct 15 09:23 .',
-          'drwxr-xr-x 15 madhav users 4096 Oct 15 09:10 ..',
-          '-rw-r--r--  1 madhav users 8192 Oct 10 11:32 web_project.js',
-          '-rw-r--r--  1 madhav users 4096 Sep 25 15:45 game_dev.cpp',
-          '-rw-r--r--  1 madhav users 6144 Aug 15 13:21 data_visualization.py'
+          '=== EDUCATION ===',
+          '',
+          'UNIVERSITY',
+          'B.Tech CSE - Lovely Professional University (2022-2026)',
+          '• Currently pursuing Bachelor of Technology in Computer Science',
+          '• Focusing on AI/ML and Web Development',
+          '• Current CGPA: 8.9/10',
+          '',
+          'SCHOOLING',
+          'Your School Name (20XX-20XX)',
+          '• Completed 12th with XX% in Science/PCM',
+          '• Achievements: [Add your achievements here]',
+          '',
+          'Your School Name (20XX-20XX)',
+          '• Completed 10th with XX% marks',
+          '• Achievements: [Add your achievements here]'
         ],
         delay: 100
       },
@@ -43,16 +53,18 @@ const Terminal = () => {
       { type: 'blank', delay: 500 },
       { 
         type: 'command', 
-        content: 'portfolio@1.0.0 build',
+        content: 'ls -la projects/',
         delay: 1000 
       },
       { 
         type: 'response', 
         content: [
-          '> webpack --mode production',
-          'Asset Size Chunks Chunk Names',
-          'main.js 825 KiB 0 [emitted] main',
-          'Build completed in 3.2s'
+          'total 5',
+          'drwxr-xr-x  2 madhav users 4096 Oct 15 09:23 .',
+          'drwxr-xr-x 15 madhav users 4096 Oct 15 09:10 ..',
+          '-rw-r--r--  1 madhav users 8192 Oct 10 11:32 web_project.js',
+          '-rw-r--r--  1 madhav users 4096 Sep 25 15:45 game_dev.cpp',
+          '-rw-r--r--  1 madhav users 6144 Aug 15 13:21 data_visualization.py'
         ],
         delay: 100
       },
