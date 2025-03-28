@@ -1,0 +1,21 @@
+.cursor-trail-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 105, 180, 0.7);
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+  mix-blend-mode: screen;
+  transition: opacity 0.2s;
+}
+
+/* Hide on touch devices */
+@media (hover: none) {
+  .cursor-trail-dot {
+    display: none;
+  }
+} 

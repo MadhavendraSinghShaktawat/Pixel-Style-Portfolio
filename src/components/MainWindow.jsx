@@ -15,11 +15,27 @@ const MainWindow = () => {
     "Problem Solver"
   ];
 
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRoleIndex(prevIndex => (prevIndex + 1) % roles.length);
     }, 3000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const x = (window.innerWidth / 2 - e.clientX) / 50;
+      const y = (window.innerHeight / 2 - e.clientY) / 50;
+      setOffset({ x, y });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   const titleBoxStyle = {
@@ -64,7 +80,14 @@ const MainWindow = () => {
   };
 
   return (
-    <PixelWindow title="portfolio.exe" className="main-window">
+    <PixelWindow 
+      title="portfolio.exe" 
+      className="main-window"
+      style={{
+        transform: `translate(${offset.x}px, ${offset.y}px)`,
+        transition: 'transform 0.2s ease-out'
+      }}
+    >
       <div style={{
         position: 'absolute',
         top: '0',

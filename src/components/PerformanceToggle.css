@@ -1,0 +1,68 @@
+.performance-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.toggle-button {
+  background-color: rgba(20, 10, 30, 0.7);
+  border: 2px solid var(--main-purple);
+  border-radius: 20px;
+  padding: 8px 12px;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  box-shadow: 0 0 15px rgba(106, 13, 173, 0.3);
+}
+
+.toggle-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(106, 13, 173, 0.5);
+}
+
+.toggle-button.high {
+  border-color: #ff69b4;
+}
+
+.toggle-button.low {
+  border-color: #6a0dad;
+}
+
+.toggle-icon {
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .toggle-text {
+    display: none;
+  }
+  
+  .toggle-button {
+    padding: 6px;
+  }
+}
+
+/* Add CSS rules for low performance mode */
+body.low-performance-mode .cursor-trail-dot {
+  display: none;
+}
+
+body.low-performance-mode .space-background {
+  filter: none;
+}
+
+body.low-performance-mode .wormhole,
+body.low-performance-mode .constellation-canvas,
+body.low-performance-mode .floating-pixels-container {
+  opacity: 0.3;
+}
+
+body.low-performance-mode .shooting-stars-container {
+  opacity: 0.5;
+} 
